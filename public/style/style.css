@@ -1,0 +1,42 @@
+.weather {
+    /* background-color: #cce6ff; */
+    /* background-color: #b3daff; */
+    background-color:  #99ceff;
+    /* border: 1px solid black; */
+    background-image: url("/img/clear.png");
+    /* background-image: url("/img/clear-night.png"); */
+    width: 300px;
+    height: 400px;
+    border-radius: 10px;
+    margin-left: 50%;
+    text-align: center;
+    padding: 2px;
+    color: #fff;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.weather-heading {
+    font-family: 'roboto';
+    margin-bottom: 2px;
+}
+.currTemp {
+    font-family: 'roboto';
+    font-size: 30px;
+    margin-top: 0px;
+}
+
+.daily-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    padding-right: 15px;
+}
+
+.weather-icon {
+    height:30px;
+}

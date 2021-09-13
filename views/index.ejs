@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
+     <link href="/style/style.css" rel="stylesheet" type="text/css">
+    <title>Weather Test</title>
+</head>
+<body>
+    <h1>Weather Here</h1>
+
+<div class="weather">
+    <h3 class="weather-heading">Mesa</h3>
+ 
+   <%let currentTemp = Math.round(weather.current.temp)%>
+   <%console.log(`the current temp is: ${currentTemp}`)%>
+   <p class="currTemp"><%=currentTemp%>&#176</p>
+   <img src="http://openweathermap.org/img/w/<%= weather.current.weather[0].icon%>.png">
+
+    <ul>
+        <%  for (let i=1; i<8; i++) { %>
+
+            <%let unixTime = weather.daily[i].dt
+            let currentDate = new Date(unixTime * 1000);
+            let dayOfWeek = currentDate.toLocaleDateString('en-US', {weekday: 'long'});
+            let newDate = currentDate.toDateString().slice(0,10); %>
+
+           <li> <div class="daily-row">   <%= dayOfWeek%> 
+            <img class="weather-icon" src="http://openweathermap.org/img/w/<%= weather.daily[i].weather[0].icon%>.png" alt="">
+            <%=Math.round(weather.daily[i].temp.max)%> 
+            <%=Math.round(weather.daily[i].temp.min)%>
+        </div> 
+        </li>
+        <% } %> 
+
+    </ul>
+
+   
+
+ 
+    
+    
+
+ 
+    
+
+    <% console.dir(weather.daily[0].weather[0].icon) %> 
+
+    
+       
+   
+
+
+
+   
+</div>
+</body>
+</html>
