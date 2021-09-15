@@ -13,13 +13,29 @@
 <body>
     <h1>Weather Here</h1>
 
+
+
 <div class="weather">
     <h3 class="weather-heading">Mesa</h3>
- 
-   <%let currentTemp = Math.round(weather.current.temp)%>
-   <%console.log(`the current temp is: ${currentTemp}`)%>
-   <p class="currTemp"><%=currentTemp%>&#176</p>
-   <img src="http://openweathermap.org/img/w/<%= weather.current.weather[0].icon%>.png">
+    <div class="weath-today">  
+        <div class="today-left">
+            <img class="current-conditions" src="http://openweathermap.org/img/w/<%= weather.current.weather[0].icon%>.png">
+    
+          <p class="conditions-text"><%= weather.current.weather[0].main %></p> 
+        </div>  
+        <div class="today-center">
+            <%let currentTemp = Math.round(weather.current.temp)%>
+            <p class="currTemp"><%=currentTemp%>&#176</p>
+        </div> 
+        <div class="today-right">
+            <p class="text-right">Sunrise: <%=riseHours%>:<%=riseMinutes%>am </p>
+            <p class="text-right">Sunset:  <%=setHours%>:<%=setMinutes%>pm</p>
+            <p class="text-right">Humidity: <%=weather.current.humidity%>% </p>
+
+            
+        </div>
+    
+    </div>
 
     <ul>
         <%  for (let i=1; i<8; i++) { %>
@@ -39,24 +55,25 @@
 
     </ul>
 
-   
 
- 
-    
-    
-
- 
+    <%console.log(weather.current)%>
     
 
     <% console.dir(weather.daily[0].weather[0].icon) %> 
 
-    
-       
-   
-
-
+    <% console.log(`DayMode is set to: ${ dayMode }`) %> 
 
    
 </div>
+
+  <script type="text/javascript">
+      let weatherBg = document.body.querySelector('.weather'); 
+    
+      weatherBg.style.backgroundImage = "url('<%=bgImage%>')";
+
+       console.log(weatherBg)
+    
+   </script>
+      
 </body>
 </html>
